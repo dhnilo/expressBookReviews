@@ -9,8 +9,8 @@ This project is the final project for the IBM course, where we will build a serv
 
 ## Features
 
-- User authentication with JWT
-- User session management with Express Session
-- CRUD operations for books
-- Ability to add reviews for books
-- User management (register, login, logout)
+[] User authentication with JWT
+[] User session management with Express Session
+[] CRUD operations for books
+[] Ability to add reviews for books
+[] User management (register, login, logout)
