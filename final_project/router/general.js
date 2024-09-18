@@ -23,7 +23,7 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
-  return res.send(JSON.stringify(books, null, 4));
+  return res.send(JSON.parse(JSON.stringify(books, null, 4)));
 });
 
 // Get book details based on ISBN
@@ -63,15 +63,14 @@ public_users.get('/title/:title',function (req, res) {
 });
 
 //  Get book review
-public_users.get('/review/:isbn',function (req, res) {
-  const isbn = req.params.isbn;
-
-  if (books[isbn]) {
-    return res.send(books[isbn].reviews);
+public_users.get('/review/:isbn', function (req, res) {
+  const isbn = req.params.isbn; // ISBN will be a string
+  if (books[isbn]) {  // Check books using string key
+      return res.send(books[isbn].reviews);
   }
-
-  res.status(404).json({ message: "No book with this isbn."})
+  res.status(404).json({ message: "No book with this ISBN." });
 });
+
 
 const allBooks = async (url) => {
   let req = axios.get(url);
